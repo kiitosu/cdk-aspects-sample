@@ -9,13 +9,16 @@ export class CdkStack extends cdk.Stack {
 
     const sqs = new cdk.aws_sqs.Queue(this, 'queue')
 
-    bucket.addEventNotification(
-        cdk.aws_s3.EventType.OBJECT_CREATED,
-        new cdk.aws_s3_notifications.SqsDestination(sqs),
-        {
-            prefix: "test",
-            suffix: ".json",
-        }
-    )
+    const suffixes = ['.txt', '.json'];
+    suffixes.forEach(suffix => {
+        bucket.addEventNotification(
+            cdk.aws_s3.EventType.OBJECT_CREATED,
+            new cdk.aws_s3_notifications.SqsDestination(sqs),
+            {
+                prefix: "test/",
+                suffix: suffix,
+            }
+        )
+    })
   }
 }
