@@ -5,7 +5,7 @@ export class CdkStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const bucket = new cdk.aws_s3.Bucket(this, 'bucket')
+    const bucket = new cdk.aws_s3.Bucket(this, 'bucket',{removalPolicy: cdk.RemovalPolicy.DESTROY})
 
     const sqs = new cdk.aws_sqs.Queue(this, 'queue')
 
