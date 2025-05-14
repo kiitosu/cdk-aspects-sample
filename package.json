@@ -9,9 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "aws-cdk-lib": "^2.153.0"
+    "aws-cdk-lib": "^2.154.0"
   },
   "devDependencies": {
-    "cdk": "^2.153.0"
+    "cdk": "^2.154.0"
   }
 }
