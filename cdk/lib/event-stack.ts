@@ -1,16 +1,12 @@
 import * as cdk from 'aws-cdk-lib';
 import { Construct } from 'constructs';
+import {resourceName} from './const'
 
-export class CdkStack extends cdk.Stack {
+export class EventStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
-    const resourceName = '2025-05-15-cdk-test'
-
-    const bucket = new cdk.aws_s3.Bucket(this, 'bucket',{
-        bucketName: resourceName,
-        removalPolicy: cdk.RemovalPolicy.DESTROY
-    })
+    const bucket = cdk.aws_s3.Bucket.fromBucketName(this, 'bucket', resourceName)
 
     const sqs = new cdk.aws_sqs.Queue(this, 'queue',{queueName: resourceName})
 
