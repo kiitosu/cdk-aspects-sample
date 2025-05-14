@@ -11,7 +11,11 @@ export class CdkStack extends cdk.Stack {
 
     bucket.addEventNotification(
         cdk.aws_s3.EventType.OBJECT_CREATED,
-        new cdk.aws_s3_notifications.SqsDestination(sqs)
+        new cdk.aws_s3_notifications.SqsDestination(sqs),
+        {
+            prefix: "test",
+            suffix: ".json",
+        }
     )
   }
 }
