@@ -1,5 +1,7 @@
 # 概要
 CDkのエラーとAspectsによる解決のサンプルコードです。
+以下の記事の動作確認コードのレポジトリです。
+- https://zenn.dev/kiitosu/articles/2450062ffa6f8a
 
 # 準備
 npmをインストールしておきます
